@@ -33,15 +33,41 @@ class App extends Component {
     })
   }
 
+
+  showPersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({
+      showPersons: !doesShow
+    })
+  }
+
   render() {
-  return (
-    <div className="App">
+
+    let people = null;
+    if(this.state.showPersons){
+      people =  <div>
       <h1>HI, I'M A REACT DEVELOPER</h1>
       <Keji name = {this.state.persons[0].name} age = {this.state.persons[0].age} caleb = {() => this.switchNameHandler("Asaba")} zeh = {this.nameChangeHandler} />
       <Keji name = {this.state.persons[1].name} age = {this.state.persons[1].age} />
       <Keji name = {this.state.persons[2].name} age = {this.state.persons[2].age} />
+      </div>
+    }
 
-      <button onClick={this.switchNameHandler.bind(this, 'Adun')}>SWITCH</button>
+  return (
+    <div className="App">
+      
+      <button onClick={this.showPersonsHandler}>SWITCH</button>
+      {people
+      /* { this.state.showPersons ?
+        <div>
+      <h1>HI, I'M A REACT DEVELOPER</h1>
+      <Keji name = {this.state.persons[0].name} age = {this.state.persons[0].age} caleb = {() => this.switchNameHandler("Asaba")} zeh = {this.nameChangeHandler} />
+      <Keji name = {this.state.persons[1].name} age = {this.state.persons[1].age} />
+      <Keji name = {this.state.persons[2].name} age = {this.state.persons[2].age} />
+      </div>
+      : null
+      } */
+      }
     </div>
   )
   }

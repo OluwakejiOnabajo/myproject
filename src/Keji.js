@@ -6,4 +6,4 @@ const person = (meme) => {
     )
 }
 
-// export default person;
+ export default person;
